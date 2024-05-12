@@ -312,7 +312,7 @@ import { LockOutlined } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 const Register = () => {
-  const [name, setName] = useState("");
+  const [name, setName] = useState({ first: "", last: "" });
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -327,11 +327,13 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const onRegister = (data: RegisterUser) => {
+    data.name.first = name.first;
+    console.log(data);
     auth
       .register(data) //request
       .then((res) => {
         //201 response
-        localStorage.setItem("user_id", res.data._id);
+        localStorage.setItem("token", res.data._id);
         dialogs.success("Success", "Register").then(() => {
           navigate("/login");
         });
@@ -344,7 +346,7 @@ const Register = () => {
   const handleRegister = async () => { };
 
   return (
-    <>
+    <form noValidate onSubmit={handleSubmit(onRegister)}>
       <Container maxWidth="xs">
         <CssBaseline />
         <Box
@@ -361,18 +363,30 @@ const Register = () => {
           <Typography variant="h5">Register</Typography>
           <Box sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  name="name"
-                  required
-                  fullWidth
-                  id="name"
-                  label="Name"
-                  autoFocus
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    name="firstName"
+                    required
+                    fullWidth
+                    id="firstName"
+                    label="firstName"
+                    autoFocus
+                    value={name.first}
+                    onChange={(e) => setName({ ...name, first: e.target.value })}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    name="lastName"
+                    required
+                    fullWidth
+                    id="lastName"
+                    label="lastName"
+                    autoFocus
+                    value={name.last}
+                    onChange={(e) => setName({ ...name, last: e.target.value })}
+                  />
+                </Grid>
 
               <Grid item xs={12}>
                 <TextField
@@ -396,6 +410,13 @@ const Register = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
+                <section className="checkbox-container">
+                  <label htmlFor="isBusiness">Business</label>
+                  <input id="isBusiness" type="checkbox" {...register("isBusiness")} />
+                  {errors.isBusiness && (
+                    <p className="text-red-500">{errors.isBusiness?.message}</p>
+                  )}
+                </section>
               </Grid>
             </Grid>
             <Button
@@ -412,10 +433,11 @@ const Register = () => {
                 <Link to="/login">Already have an account? Login</Link>
               </Grid>
             </Grid>
+            <DevTool control={control} />
           </Box>
         </Box>
       </Container>
-    </>
+    </form>
   );
 };
 
