@@ -10,11 +10,11 @@ export type RegisterUser = {
     middle?: string;
     last: string;
   };
-  phone: string;
+  phone: number;
   email: string;
-  password: string;
+  password: number;
   image?: {
-    url: string;
+    url?: string;
     alt?: string;
   };
   address: {
@@ -64,5 +64,5 @@ export type ErrorType = {
 };
 
 
-// טיפוס לפונקציה שמקבלת ילדים ומחזירה אלמנט של ראקט
+// טיפוס לפונקציה שמקבלת ילדים ומחזירה אלמנט של ריאקט
 export type FCC = ({ children: ReactNode }) => ReactNode;
