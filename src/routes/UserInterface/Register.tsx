@@ -1,13 +1,13 @@
 import { useForm } from "react-hook-form";
-import { RegisterUser } from "../@types/types";
-import patterns from "../validation/patterns";
+import { RegisterUser } from "../../@types/types";
+import patterns from "../../validation/patterns";
 import "./Register.scss";
 import { DevTool } from "@hookform/devtools";
 import { BsEye, BsEyeSlashFill } from "react-icons/bs";
 import { useState } from "react";
-import { registerMock } from "../mocks/register";
-import auth from "../services/auth";
-import dialogs from "../ui/dialogs";
+import { registerMock } from "../../mocks/register";
+import auth from "../../services/auth";
+import dialogs from "../../ui/dialogs";
 import { useNavigate } from "react-router-dom";
 
 import {

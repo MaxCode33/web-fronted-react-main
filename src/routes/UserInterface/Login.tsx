@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { LoginUser } from "../@types/types";
-import { useAuth } from "../hooks/useAuth";
-import auth from "../services/auth";
-import dialogs, { showSuccessDialog } from "../ui/dialogs";
-import patterns from "../validation/patterns";
+import { LoginUser } from "../../@types/types";
+import { useAuth } from "../../hooks/useAuth";
+import auth from "../../services/auth";
+import dialogs, { showSuccessDialog } from "../../ui/dialogs";
+import patterns from "../../validation/patterns";
 
 import { LockOutlined } from "@mui/icons-material";
 import {

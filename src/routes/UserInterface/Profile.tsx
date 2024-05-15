@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import auth from "../services/auth";
-import { RegisterUser } from "../@types/types";
+import auth from "../../services/auth";
+import { RegisterUser } from "../../@types/types";
 
 const Profile = () => {
   const userId = localStorage.getItem("user_id") ?? "no user id";
@@ -16,7 +16,7 @@ const Profile = () => {
         console.log(e);
       });
   }, []);
-  
+
   return (
     <div>
       <h2>

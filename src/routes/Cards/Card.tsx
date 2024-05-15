@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { CardType, ErrorType } from "../@types/types";
-import { getCardById } from "../services/cards";
+import { CardType, ErrorType } from "../../@types/types";
+import { getCardById } from "../../services/cards";
 
 const Card = () => {
 
