@@ -35,26 +35,26 @@ export type CardType = {
   description: string;
   phone: string;
   email: string;
-  web: string;
-  image: {
+  web?: string;
+  image?: {
     url: string;
     alt: string;
     _id: string;
   };
   address: {
-    state: string;
+    state?: string;
     country: string;
     city: string;
     street: string;
     houseNumber: number;
-    zip: number;
+    zip?: number;
     _id: string;
   };
   bizNumber: number;
   likes: string[];
-  user_id: string;
-  createdAt: string;
-  __v: number;
+  user_id?: string;
+  createdAt: Date;
+  __v?: number;
 };
 
 export type ErrorType = {

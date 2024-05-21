@@ -18,11 +18,10 @@ export const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { index: true, element: <Login /> },
-      { path: "/home", element: <Cards /> },
       { path: "/register", element: <Register /> },
       { path: "/cards", element: <Cards /> },
       { path: "/cards/:id", element: <Card /> },
-      { path: "/Create", element: <CreateCard /> },
+      { path: "/cards/create", element: <CreateCard /> },
 
       {
         path: "/profile",

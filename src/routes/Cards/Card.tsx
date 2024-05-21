@@ -31,7 +31,7 @@ const Card = () => {
     <div>
       <h2>{card?.title}</h2>
       <p>{card?.subtitle}</p>
-      <img src={card?.image.url} alt={card?.image.alt} />
+      <img src={card?.image?.url} alt={card?.image?.alt} />
     </div>
   );
 };

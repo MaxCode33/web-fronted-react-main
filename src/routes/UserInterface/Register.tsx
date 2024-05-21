@@ -49,7 +49,7 @@ const Register = () => {
         //201 response
         localStorage.setItem("token", res.data._id);
         dialogs.success("Success", "Register").then(() => {
-          navigate("/login");
+          navigate("/");
         });
       })
       .catch((e) => {
